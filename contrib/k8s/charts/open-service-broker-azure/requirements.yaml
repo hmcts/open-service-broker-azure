@@ -2,4 +2,4 @@ dependencies:
 - name: redis
   version: 10.5.7
   condition: redis.embedded
-  repository: https://kubernetes-charts.storage.googleapis.com/
+  repository: https://charts.bitnami.com/bitnami
