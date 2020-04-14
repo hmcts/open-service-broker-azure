@@ -105,11 +105,11 @@ spec:
               port: 8080
               scheme: HTTP
               {{- end }}
-            failureThreshold: 1
-            initialDelaySeconds: 10
-            periodSeconds: 10
-            successThreshold: 1
-            timeoutSeconds: 2
+            failureThreshold: {{ .Values.readinessFailureThreshold }}
+            initialDelaySeconds: {{ .Values.readinessDelay }}
+            periodSeconds: {{ .Values.readinessPeriod }}
+            successThreshold: {{ .Values.readinessSuccessThreshold }}
+            timeoutSeconds: {{ .Values.readinessTimeout }}
           livenessProbe:
             httpGet:
               path: /healthz
@@ -120,11 +120,11 @@ spec:
               port: 8080
               scheme: HTTP
               {{- end }}
-            failureThreshold: 3
-            initialDelaySeconds: 30
-            periodSeconds: 10
-            successThreshold: 1
-            timeoutSeconds: 2
+            failureThreshold: {{ .Values.livenessFailureThreshold }}
+            initialDelaySeconds: {{ .Values.livenessDelay }}
+            periodSeconds: {{ .Values.livenessPeriod }}
+            successThreshold: {{ .Values.livenessSuccessThreshold }}
+            timeoutSeconds: {{ .Values.livenessTimeout }}
       nodeSelector:
         beta.kubernetes.io/os: linux
       {{- if .Values.tls.enabled }}

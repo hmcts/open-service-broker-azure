@@ -16,6 +16,18 @@ image:
 ## that will access it.
 registerBroker: true
 
+livenessDelay: 30
+livenessTimeout: 2
+livenessPeriod: 10
+livenessFailureThreshold: 3
+livenessSuccessThreshold: 1
+
+readinessDelay: 10
+readinessTimeout: 2
+readinessPeriod: 10
+readinessFailureThreshold: 1
+readinessSuccessThreshold: 1
+
 service:
   ## Type of service; valid values are "ClusterIP", "LoadBalancer", and
   ## "NodePort". "ClusterIP" is sufficient in the average case where a service
