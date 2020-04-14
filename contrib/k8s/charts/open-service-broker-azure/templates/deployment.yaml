@@ -95,6 +95,7 @@ spec:
           {{- else }}
           - containerPort: 8080
           {{- end }}
+          {{- if .Values.readinessCheckEnabled }}
           readinessProbe:
             httpGet:
               path: /healthz
@@ -110,6 +111,7 @@ spec:
             periodSeconds: {{ .Values.readinessPeriod }}
             successThreshold: {{ .Values.readinessSuccessThreshold }}
             timeoutSeconds: {{ .Values.readinessTimeout }}
+          {{- end }}
           livenessProbe:
             httpGet:
               path: /healthz

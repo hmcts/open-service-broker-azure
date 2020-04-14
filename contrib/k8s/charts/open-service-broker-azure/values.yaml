@@ -22,6 +22,7 @@ livenessPeriod: 10
 livenessFailureThreshold: 3
 livenessSuccessThreshold: 1
 
+readinessCheckEnabled: true
 readinessDelay: 10
 readinessTimeout: 2
 readinessPeriod: 10
