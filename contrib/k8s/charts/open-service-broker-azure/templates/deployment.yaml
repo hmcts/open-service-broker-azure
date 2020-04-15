@@ -112,6 +112,7 @@ spec:
             successThreshold: {{ .Values.readinessSuccessThreshold }}
             timeoutSeconds: {{ .Values.readinessTimeout }}
           {{- end }}
+          {{- if .Values.livenessCheckEnabled }}
           livenessProbe:
             httpGet:
               path: /healthz
@@ -127,6 +128,7 @@ spec:
             periodSeconds: {{ .Values.livenessPeriod }}
             successThreshold: {{ .Values.livenessSuccessThreshold }}
             timeoutSeconds: {{ .Values.livenessTimeout }}
+          {{- end }}
       nodeSelector:
         beta.kubernetes.io/os: linux
       {{- if .Values.tls.enabled }}
